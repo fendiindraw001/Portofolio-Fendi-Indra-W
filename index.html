@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fendi Indra Wardana | Premium Portfolio</title>
+    
+    <!-- Google Fonts: Poppins (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f172a;       /* Dark Slate Blue */
+            --primary-light: #1e293b; /* Medium Slate Blue */
+            --accent: #2563eb;        /* Royal Blue Accent */
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --accent-light: #eff6ff;  /* Ultra Light Blue */
+            --bg-body: #f8fafc;       /* Cool background tint */
+            --bg-card: #ffffff;
+            --text-main: #334155;     /* Slate text */
+            --text-light: #64748b;    /* Muted text */
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(37, 99, 235, 0.05), 0 8px 10px -6px rgba(37, 99, 235, 0.05);
+            --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* --- STUNNING ANIMATIONS --- */
+        @keyframes heroGlow {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-down { animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-fade-up { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.25s, transform 0.25s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
+            background-color: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- TYPOGRAPHIC HERO SECTION (NO PHOTO) --- */
+        .hero {
+            position: relative;
+            padding: 12rem 2rem 8rem 2rem;
+            background: #ffffff;
+            overflow: hidden;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Ambient Glowing Blobs */
+        .hero-glow-1 {
+            position: absolute;
+            top: -10%; left: 20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: heroGlow 10s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: 5%; right: 15%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(29, 78, 216, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: heroGlow 12s infinite alternate-reverse ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -2px;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, #2563eb, #1d4ed8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.tagline {
+            font-size: 1.35rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-body);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        .hero-meta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            background: var(--bg-body);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .meta-item i {
+            color: var(--accent);
+        }
+
+        /* --- CONTENT WRAPPER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-header i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.75rem;
+            border-radius: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Responsive Grid Split */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 3.5rem;
+        }
+
+        @media(max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* --- PREMIUM CARD DESIGN --- */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            margin-bottom: 2.5rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+
+        /* --- PROFESSIONAL TIMELINE SYSTEM --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: -2.45rem;
+            top: 0.25rem;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover .timeline-node {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-title-grp h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .item-company {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-top: 0.15rem;
+        }
+
+        .item-company i {
+            margin-right: 0.25rem;
+            color: var(--text-light);
+        }
+
+        .item-badge-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            white-space: nowrap;
+        }
+
+        /* --- BULLET POINT STYLING --- */
+        .desc-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .desc-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .desc-list li::before {
+            content: '\f058'; /* FontAwesome Check Circle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0; top: 2px;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* --- PROJECTS WITH ACTIONS --- */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, #ffffff 0%, var(--accent-light) 100%);
+        }
+
+        .project-link-title {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .project-link-title:hover {
+            color: var(--accent);
+        }
+
+        /* --- SKILLS & BADGES --- */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .skill-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .badge-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .badge {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.03);
+        }
+
+        .badge i {
+            color: var(--accent);
+            transition: color 0.25s;
+        }
+
+        .badge:hover i {
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        footer h2 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        footer .scroll-top {
+            position: absolute;
+            top: -20px; left: 50%;
+            transform: translateX(-50%);
+            width: 40px; height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Fendi Indra W <span>Portofolio</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Typographic Hero Header (Ultra Elegant, No Photo) -->
+    <header class="hero">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-wrapper animate-fade-down">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i> Marketing Management Professional
+            </div>
+            <h1>Hi, I am <span>Fendi Indra Wardana</span></h1>
+            <p class="tagline">A dedicated Marketing Management student specialized in strategic consumer behavior, digital marketing architecture, and corporate administration.</p>
+            
+            <div class="hero-cta">
+                <a href="mailto:fendiindrawardana1609@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+                <a href="https://www.linkedin.com/in/fendiindraw" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+
+            <div class="hero-meta-grid">
+                <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Samarinda, East Kalimantan</div>
+                <div class="meta-item"><i class="fas fa-phone-alt"></i> 0857-8792-1018</div>
+                <div class="meta-item"><i class="fas fa-envelope"></i> fendiindrawardana1609@gmail.com</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container Layout -->
+    <div class="container animate-fade-up">
+        
+        <!-- Description Summary -->
+        <section id="about" style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <i class="fas fa-user-tie"></i>
+                <h2>Professional Summary</h2>
+            </div>
+            <div class="card" style="text-align: justify; font-size: 1.05rem;">
+                I am a <span class="highlight">Marketing Management student</span> at Samarinda State Polytechnic with a strong focus on market development, corporate administration, and financial tracking. Exceptionally competent in maximizing productivity applications including Microsoft Office and Google tools. Possess excellent interpersonal skills, public speaking confidence, and strong persuasive capabilities essential for building relationships. Highly motivated to apply modern marketing strategies into corporate structures to drive positive results.
+            </div>
+        </section>
+
+        <div class="main-layout">
+            
+            <!-- Left Grid Panel: Experiences & Projects -->
+            <div class="left-panel">
+                
+                <!-- Work Experience Section -->
+                <section id="experience">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Work Experience</h2>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="timeline">
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Team Member Store</h3>
+                                        <div class="item-company"><i class="fas fa-building"></i> PT Eka Boga Inti (HokBen)</div>
+                                    </div>
+                                    <span class="item-badge-date">Dec 2024 - Mar 2026</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Served personalized food preferences directly to customers to maintain high enterprise satisfaction standards.</li>
+                                    <li>Prepared key service infrastructure to support smooth restaurant operations.</li>
+                                    <li>Provided highly responsive, warm, and professional customer care during peak operational hours.</li>
+                                    <li>Executed up selling and cross selling techniques to increase daily sales value.</li>
+                                    <li>Prepared and processed food products according to corporate quality control guidelines.</li>
+                                    <li>Managed hygiene regulations and area cleanliness to guarantee a comfortable space for customers.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Barista & Cashier</h3>
+                                        <div class="item-company"><i class="fas fa-building"></i> PT Foodholic Group (Selalu Teh)</div>
+                                    </div>
+                                    <span class="item-badge-date">Aug 2023 - Dec 2023</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Provided services to customers while recommending products that suit consumer preferences.</li>
+                                    <li>Implemented up selling and cross selling strategies to increase daily transaction value.</li>
+                                    <li>Designed attractive promotional content for social media, especially Instagram.</li>
+                                    <li>Managed and recorded outlet financial transactions accurately and regularly.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Crew Store</h3>
+                                        <div class="item-company"><i class="fas fa-building"></i> Cv Kebab Kota Raja</div>
+                                    </div>
+                                    <span class="item-badge-date">Dec 2022 - May 2023</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Provided direct service to customers to ensure customer satisfaction.</li>
+                                    <li>Prepared and processed kebab products according to quality standards.</li>
+                                    <li>Recorded and recapped all daily financial transactions of the outlet regularly.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Operation Support Intern</h3>
+                                        <div class="item-company"><i class="fas fa-building"></i> PT Bank Rakyat Indonesia (Persero) Tbk</div>
+                                    </div>
+                                    <span class="item-badge-date">Apr 2022 - Jun 2022</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Assisted creditors in preparing administrative documents for credit applications.</li>
+                                    <li>Updated and rearranged all archival documents to keep them neat and organized.</li>
+                                    <li>Served as a customer service assistant to support daily customer service operations.</li>
+                                    <li>Contributed to improving company achievements, especially in document audit assessments.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project & Research Section -->
+                <section id="projects">
+                    <div class="section-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>Project & Research Experience</h2>
+                    </div>
+
+                    <div class="card">
+                        
+                        <div class="project-card">
+                            <div class="item-head">
+                                <h3 class="item-title-grp">
+                                    <a href="https://garuda.kemdiktisaintek.go.id/documents/detail/5920886" target="_blank" class="project-link-title">
+                                        Scientific Publication: "Digital Feasibility of Yaka Photo & Studio" <i class="fas fa-external-link-alt" style="font-size: 0.85rem;"></i>
+                                    </a>
+                                </h3>
+                                <span class="item-badge-date">Mar 2025</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;"><i class="fas fa-journal-whills"></i> Published in Enrichment: Journal of Management</p>
+                            <ul class="desc-list">
+                                <li>Carried out technical analysis of research design and digital feasibility methodology.</li>
+                                <li>Conducted direct field observations related to the research object.</li>
+                                <li>Processed and compiled observation results into a structured scientific report.</li>
+                                <li>Compiled, calculated, and evaluated all aspects of company finances.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="item-head">
+                                <h3>Marketing Information System Analysis</h3>
+                                <span class="item-badge-date">Aug 2025</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-light); font-weight: 500; margin-bottom: 0.75rem;"><i class="fas fa-ship"></i> Focus Object: PT PELNI</p>
+                            <ul class="desc-list">
+                                <li>Collected all sources of marketing information and managed them into a Database system.</li>
+                                <li>Analyzed marketing problems faced by the company using the database.</li>
+                                <li>Provided strategic recommendations to address problems in the marketing department.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="item-head">
+                                <h3>Service Quality (Servqual) Gap Evaluation</h3>
+                                <span class="item-badge-date">Mar 2025</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-light); font-weight: 500; margin-bottom: 0.75rem;"><i class="fas fa-utensils"></i> Focus Object: Mie Gacoan Samarinda</p>
+                            <ul class="desc-list">
+                                <li>Conducted initial observations to determine relevant quantitative calculation metrics.</li>
+                                <li>Processed and analyzed quantitative data of customer satisfaction using SPSS software.</li>
+                                <li>Generated operational solutions and strategic advice based on service gap analysis.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Grid Panel: Education, Skills, fully expanded Organizations -->
+            <div class="right-panel">
+                
+                <!-- Education Card -->
+                <section id="education">
+                    <div class="section-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h2>Education</h2>
+                    </div>
+                    <div class="card">
+                        <h3>Bachelor in Marketing Management</h3>
+                        <div class="item-company" style="margin-bottom: 0.25rem;">Samarinda State Polytechnic</div>
+                        <span class="item-badge-date">Apr 2023 - Present</span>
+                        
+                        <div style="margin-top: 1.5rem; background: var(--bg-body); padding: 1.25rem; border-radius: var(--radius-md); border: 1px dashed var(--border);">
+                            <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>Current GPA:</strong> <span style="color:var(--accent); font-weight:700;">3.66 / 4.00</span></p>
+                            <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.5;">
+                                <strong>Core Competency Tracks:</strong> Consumer Behavior Architecture, Advanced Retail Marketing, Marketing Information System Mechanics, Corporate Public Relations, Customer Service Psychology.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core Skills Card -->
+                <section id="skills">
+                    <div class="section-header">
+                        <i class="fas fa-cubes"></i>
+                        <h2>Core Competencies</h2>
+                    </div>
+                    <div class="card">
+                        <div class="skills-container">
+                            
+                            <div>
+                                <div class="skill-section-title">Languages</div>
+                                <div class="badge-flex">
+                                    <span class="badge"><i class="fas fa-language"></i> Indonesian (Native)</span>
+                                    <span class="badge"><i class="fas fa-globe"></i> English (Intermediate)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="skill-section-title">Enterprise Software</div>
+                                <div class="badge-flex">
+                                    <span class="badge"><i class="fab fa-windows"></i> Microsoft Office Suite</span>
+                                    <span class="badge"><i class="fab fa-google"></i> Google Workspace</span>
+                                    <span class="badge"><i class="fas fa-calculator"></i> IBM SPSS Statistics</span>
+                                    <span class="badge"><i class="fas fa-palette"></i> Canva Graphics</span>
+                                    <span class="badge"><i class="fas fa-video"></i> CapCut Editor</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="skill-section-title">Professional Traits</div>
+                                <div class="badge-flex">
+                                    <span class="badge"><i class="fas fa-clock"></i> Time Management</span>
+                                    <span class="badge"><i class="fas fa-users"></i> Team Collaboration</span>
+                                    <span class="badge"><i class="fas fa-comments"></i> Public Speaking</span>
+                                    <span class="badge"><i class="fas fa-bolt"></i> Fast Adaptive Learner</span>
+                                    <span class="badge"><i class="fas fa-chart-pie"></i> Persuasive Selling</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Organization & Volunteer Activity Section WITH FULL DESCRIPTIONS -->
+                <section id="organization">
+                    <div class="section-header">
+                        <i class="fas fa-users-viewfinder"></i>
+                        <h2>Leadership & Volunteering</h2>
+                    </div>
+                    <div class="card">
+                        <div class="timeline">
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Head of Human Capital Division</h3>
+                                        <div class="item-company">Ragam Cakap</div>
+                                    </div>
+                                    <span class="item-badge-date">Jun 2024 - Present</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Designed and compiled work programs during the organization management period.</li>
+                                    <li>Fully responsible for the implementation and supervision of all ongoing work programs.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Health Coordinator & PDD Member</h3>
+                                        <div class="item-company">Inaugural Lecture of Business Adm & Omaru</div>
+                                    </div>
+                                    <span class="item-badge-date">Aug 2024</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Developed health workflows and supervised the medical condition of new students.</li>
+                                    <li>Carried out daily documentation of activities by collecting photos and videos.</li>
+                                    <li>Designed creative content to be uploaded to the organization Instagram account.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Member of Social Sciences Division</h3>
+                                        <div class="item-company">Business Administration Student Association</div>
+                                    </div>
+                                    <span class="item-badge-date">Jan 2024 - Jan 2025</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Responsible for the planning and implementation of the Goes To School work program.</li>
+                                    <li>Served as Master of Ceremony (MC) in academic sharing activities.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="item-head">
+                                    <div class="item-title-grp">
+                                        <h3>Volunteer Teacher</h3>
+                                        <div class="item-company">Polnes Teaching</div>
+                                    </div>
+                                    <span class="item-badge-date">Aug 2023</span>
+                                </div>
+                                <ul class="desc-list">
+                                    <li>Guided elementary school pupils through intensive study modules to expand text comprehension and mathematical fundamentals.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Premium Footer -->
+    <footer>
+        <a href="#" class="scroll-top" title="Scroll To Top"><i class="fas fa-chevron-up"></i></a>
+        <h2>Fendi Indra Wardana</h2>
+        <p>Strategic Marketing Management Portfolio</p>
+        <p style="font-size: 0.8rem; margin-top: 1.5rem; color: #64748b;">&copy; 2026. Built with high-end typographic CSS architecture. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
